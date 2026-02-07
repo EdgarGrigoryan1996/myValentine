@@ -2,7 +2,7 @@ import s from "./GiftMusicPlayer.module.scss"
 import musicImg from "../../assets/images/1.jpg"
 import {useRef, useState} from "react";
 import {IoCloudDownloadOutline} from "react-icons/io5";
-
+import bgMusic from "../../assets/music/bg.mp3"
 function GiftMusicPlayer(props) {
     const audioSrc = props.music; // путь к файлу
     const audioRef = useRef(null);
@@ -44,7 +44,7 @@ function GiftMusicPlayer(props) {
 
 
     return (
-        <div className={props.music === "/src/assets/music/bg.mp3" ? s.hiddenAudio : s.audioBlock}>
+        <div className={props.music === bgMusic ? s.hiddenAudio : s.audioBlock}>
             <audio ref={audioRef}
                    className={s.realAudio}
                    src={props.music}
