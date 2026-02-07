@@ -1,5 +1,10 @@
 .hiddenAudio{
-  display: none;
+  display: none ;
+  height: 0 !important;
+  cursor: pointer;
+  .musicImage,img,.imageWave{
+    display: none;
+  }
 }
 .audioBlock{
   padding: 30px 20px 10px 20px;
@@ -18,6 +23,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  .close{
+    position: absolute;
+    cursor: pointer;
+    top: 7px;
+    right: 20px;
+    color: #9e39f1;
+    font-weight: 900;
+  }
   .realAudio{
     display: none;
   }

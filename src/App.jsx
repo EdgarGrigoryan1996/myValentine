@@ -8,6 +8,7 @@ import bgMusic from "./assets/music/bg.mp3"
 import GiftMusicPlayer from "./components/GiftMusicPlayer/GiftMusicPlayer.jsx";
 function App() {
     const [music,setMusic] = useState(bgMusic);
+    const [opened, setOpened] = useState(false);
 
 
   return (
@@ -18,10 +19,10 @@ function App() {
             <div className={s.homeBlock}>
                 <Routes>
                     <Route path="/home" element={<Home  />}/>
-                    <Route path="/valentine" element={<MyValentine setMusic={setMusic} />}/>
+                    <Route path="/valentine" element={<MyValentine setMusic={setMusic} setOpened={setOpened}/>}/>
                     <Route path="*" element={<h1>Ooooops 404 Not Found</h1>}/>
                 </Routes>
-                <GiftMusicPlayer music={music} />
+                <GiftMusicPlayer music={music} opened={opened} setOpened={setOpened}/>
             </div>
 
         </div>

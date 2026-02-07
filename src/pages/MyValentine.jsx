@@ -20,6 +20,7 @@ function MyValentine(props) {
                 <img src={giftImage} alt="close" onClick={() => {
                     setGiftImage(giftOpen)
                     props.setMusic(giftMusic)
+                    props.setOpened(true)
                 } } />
                 {
                     giftImage === giftClose && <span className={s.arrow}>

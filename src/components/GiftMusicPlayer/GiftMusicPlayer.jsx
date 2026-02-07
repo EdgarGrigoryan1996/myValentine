@@ -1,11 +1,15 @@
 import s from "./GiftMusicPlayer.module.scss"
 import musicImg from "../../assets/images/1.jpg"
 import {useRef, useState} from "react";
-import {IoCloudDownloadOutline} from "react-icons/io5";
+import {IoCloseCircleSharp, IoCloudDownloadOutline} from "react-icons/io5";
 import bgMusic from "../../assets/music/bg.mp3"
+import {FaArrowUp, FaWindowClose} from "react-icons/fa";
+import {RiEyeCloseFill} from "react-icons/ri";
+import {GrClose} from "react-icons/gr";
 function GiftMusicPlayer(props) {
     const audioSrc = props.music; // путь к файлу
     const audioRef = useRef(null);
+    const audioBlockRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(true);
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
@@ -42,9 +46,41 @@ function GiftMusicPlayer(props) {
         setCurrentTime(value);
     };
 
+    const closePlayer = () => {
+        if (!audioBlockRef.current) return;
+
+        audioBlockRef.current.classList.add(s.hiddenAudio);
+    }
+
+    const openPlayer = () => {
+        if (!audioBlockRef.current) return;
+
+        audioBlockRef.current.classList.remove(s.hiddenAudio);
+    }
+
 
     return (
-        <div className={props.music === bgMusic ? s.hiddenAudio : s.audioBlock}>
+        <div
+            ref={audioBlockRef}
+            className={props.music === bgMusic ? s.hiddenAudio : s.audioBlock}
+            onClick={() => {
+                props.setOpened(true)
+                openPlayer();
+            }}
+        >
+            <span className={s.close} onClick={(e) => {
+                if(props.opened){
+                    e.stopPropagation();
+                    closePlayer();
+                    props.setOpened(false);
+                } else {
+                    e.stopPropagation();
+                    openPlayer();
+                    props.setOpened(true);
+
+                }
+
+            }}>{props.opened ? <GrClose /> :<FaArrowUp color={"#9e39f1"}/>}</span>
             <audio ref={audioRef}
                    className={s.realAudio}
                    src={props.music}
