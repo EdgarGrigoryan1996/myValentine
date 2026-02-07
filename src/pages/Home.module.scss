@@ -1,0 +1,184 @@
+.welcomeWrapper{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background: #f8b3b3;
+  overflow: hidden;
+  .text{
+    display: flex;
+    gap: 55px;
+  }
+  h1,h2{
+    color: #fff;
+    font-size: 120px;
+    font-weight: bold;
+    font-family: "Playwrite NZ Basic", cursive;
+  }
+
+  a{
+    padding: 20px 60px;
+    background: #f84949;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 20px;
+  }
+}
+
+
+.homeWrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  .homeBlock{
+    background: #fff;
+    width: 50%;
+    min-height: 60%;
+    text-align: center;
+    border-radius: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background-image: url("../../src/assets/images/love.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    h1{
+      font-size: 52px;
+      color: #fff;
+      padding: 0;
+      margin-bottom: 0;
+    }
+    h2{
+      font-size: 36px;
+
+    }
+    h3.valentineText{
+      font-size: 28px;
+      color: #f84949;
+    }
+    .buttonsBlock{
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      justify-content: center;
+      align-items: center;
+      button{
+        width: 150px;
+        height: 50px;
+        color: #fff;
+        cursor: pointer;
+        position: absolute;
+        bottom: 150px;
+      }
+      .yes{
+        background: #f84949;
+        left: 30%;
+      }
+      .no{
+        right: 30%;
+      }
+    }
+  }
+}
+
+//Valentine
+.valentine{
+  position: relative;
+  width: 100%;
+  img{
+    max-width: 300px;
+    max-height: 200px;
+    cursor: pointer;
+  }
+  .arrow{
+    font-size: 28px;
+    color: #9e39f1;
+    position: absolute;
+    right: 50%;
+    transform: translateX(200%);
+  }
+  .giftBlock{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+
+
+  .giftAudio{
+    display: block;
+    position: absolute;
+
+  }
+
+
+
+
+
+@media screen and (max-width: 1400px){
+  .welcomeWrapper{
+    .text{
+      display: flex;
+      gap: 55px;
+    }
+    h1,h2{
+      font-size: 80px;
+    }
+
+    a{
+      padding: 15px 50px;
+      font-size: 18px;
+    }
+  }
+  .homeWrapper{
+    .homeBlock{
+      width: 60%;
+      min-height: 60%;
+      border-radius: 40px;
+      background-position: 0;
+      h1{
+        font-size: 48px;
+        color: #fff;
+      }
+      h2{
+        font-size: 28px;
+
+      }
+      h3{
+        font-size: 22px;
+      }
+      .buttonsBlock{
+        gap: 50px;
+        button{
+          width: 150px;
+          height: 50px;
+          bottom: 150px;
+        }
+        .yes{
+          left: 25%;
+        }
+        .no{
+          right: 25%;
+        }
+      }
+    }
+  }
+
+
+  //Valentine
+  .valentine{
+    img{
+      max-width: 180px;
+    }
+    .arrow{
+      font-size: 22px;
+    }
+  }
+}
+

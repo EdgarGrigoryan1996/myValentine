@@ -1,0 +1,90 @@
+.filmBg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  perspective: 1200px; // 👈 ВАЖНО для 3D
+}
+
+/* Лента */
+.filmTrack {
+  display: flex;
+  gap: 20px;
+  height: 100%;
+  align-items: center;
+  padding: 0 40px;
+  transform-style: preserve-3d;
+  animation: moveFilm 60s linear infinite,
+}
+
+/* Кадры */
+.filmTrack img {
+  height: 70%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 6px;
+  filter: grayscale(70%) contrast(1.1);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+
+  transition: transform 0.6s ease;
+}
+.filmBg::before,
+.filmBg::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: repeating-linear-gradient(
+                  to right,
+                  transparent 0 20px,
+                  #000 20px 30px
+  );
+  z-index: 2;
+}
+
+.filmBg::before {
+  top: 0;
+}
+
+.filmBg::after {
+  bottom: 0;
+}
+
+.filmTrack img:nth-child(odd) {
+  transform: rotateY(-6deg);
+}
+
+.filmTrack img:nth-child(even) {
+  transform: rotateY(6deg);
+}
+
+@keyframes moveFilm {
+  0%{
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-82%);
+  }
+  50% {
+    transform: translateX(-165%);
+  }
+  75% {
+    transform: translateX(-82%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+
+}
+@keyframes filmFloat {
+  0% {
+    transform: translateX(0) rotateX(12deg) rotateY(-15deg);
+  }
+  50% {
+    transform: translateX(-25%) rotateX(-8deg) rotateY(15deg);
+  }
+  100% {
+    transform: translateX(-50%) rotateX(12deg) rotateY(-15deg);
+  }
+}
