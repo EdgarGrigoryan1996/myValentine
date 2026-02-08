@@ -14,7 +14,7 @@ function WelcomePage() {
             </div>
 
             <div className="animate__animated animate__bounceInUp animate__delay-1s">
-                <Link to={"/home"}>Next</Link>
+                <Link to={"/home"}>Hello Edgar</Link>
             </div>
 
         </div>
