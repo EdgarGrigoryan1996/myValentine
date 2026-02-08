@@ -15,6 +15,14 @@ function MyValentine(props) {
     const [started, setStarted] = useState(false);
 
     useEffect(() => {
+        const img1 = new Image();
+        img1.src = giftClose;
+
+        const img2 = new Image();
+        img2.src = giftOpen;
+    }, []);
+
+    useEffect(() => {
         const timer = setTimeout(() => {
             setStarted(true);
         },3000)
