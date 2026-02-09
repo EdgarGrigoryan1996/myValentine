@@ -7,12 +7,28 @@ import {FaArrowLeftLong} from "react-icons/fa6";
 import {FaGift} from "react-icons/fa";
 
 function MyValentine(props) {
-    const animatedText = "A Small Gift For You ✌️"
-    const [displayedText, setDisplayedText] = useState("")
-    const [index, setIndex] = useState(0);
+    const animatedText1 = "Գիտե՞ս, երբ տերը իմացավ, որ պետք է ծնվեմ ես,\n" +
+        "ինքը այս աշխարհ ուղարկեց ՝ ՔԵԶ:\n" +
+        "Ինքը տեսավ իմ կյանքի ամբողջ ճանապարհը։\n" +
+        "Տեսավ թե ինչ դժվարությունների միջով պետք է անցնեմ,\n" +
+        "Տեսավ իմ բոլոր դժվար տարիները՝\n" +
+        "Խաբեություն, նախանձ, դավաճանություն, հարազատի կորուստ։\n" +
+        "ՈՒ էտ պահին ինքը հասկացավ որ նա չունի այդքան պահապան հրեշտակ ՝\n" +
+        "Ովքեր կկարողանան փրկել ինձ։\n" +
+        "Ու ինքը որոշեց ինձ ուղարկել ընդհամենը մի հրեշտակի՝ ամբողջ կյանքի համար՝\n" +
+        "ՔԵԶ\n" +
+        "Իմ պահապան հրեշտակ❤️\n️"
+
+    const animatedText2 = "A small gift for you ✌️"
+    const [displayedText1, setDisplayedText1] = useState("")
+    const [displayedText2, setDisplayedText2] = useState("")
+    const [index1, setIndex1] = useState(0);
+    const [index2, setIndex2] = useState(0);
     const [giftIsShow, setGiftIsShow] = useState(false);
     const [giftImage, setGiftImage] = useState(giftClose);
+    const [readyForSecondAnimate,setReadyForSecondAnimate] = useState(false);
     const [started, setStarted] = useState(false);
+
 
     useEffect(() => {
         const img1 = new Image();
@@ -32,18 +48,18 @@ function MyValentine(props) {
     }, []);
     useEffect(() => {
             if(!started) return;
-            if(index < animatedText.length){
+            if(index1 < animatedText1.length){
                 const timeout = setTimeout(() => {
-                    setDisplayedText((prev) => prev + animatedText[index]);
-                    setIndex(index + 1);
-                },300)
+                    setDisplayedText1((prev) => prev + animatedText1[index1]);
+                    setIndex1(index1 + 1);
+                },200)
 
                 return () => {
                     clearTimeout(timeout);
                 }
             } else {
                 const timeout = setTimeout(() => {
-                    setGiftIsShow(true);
+                    setReadyForSecondAnimate(true);
                 },2000)
                 return () => {
                     clearTimeout(timeout);
@@ -53,7 +69,28 @@ function MyValentine(props) {
 
 
 
-    },[index,started]);
+    },[index1,started]);
+
+    useEffect(() => {
+        if(!readyForSecondAnimate) return;
+        if(index2 < animatedText2.length){
+            const timeout = setTimeout(() => {
+                setDisplayedText2((prev) => prev + animatedText2[index2]);
+                setIndex2(index2 + 1);
+            },50)
+
+            return () => {
+                clearTimeout(timeout);
+            }
+        } else {
+            const timeout = setTimeout(() => {
+                setGiftIsShow(true);
+            },2000)
+            return () => {
+                clearTimeout(timeout);
+            }
+        }
+    },[index2,readyForSecondAnimate]);
 
     return (
 
@@ -71,8 +108,11 @@ function MyValentine(props) {
                 <h3 className={s.valentineText}>I love you ❤️</h3>
             </div>
 
-            <div className="animate__animated animate__bounceInUp">
-                <h2>{displayedText}</h2>
+            <div style={{padding:"0 25px"}} className="animate__animated animate__bounceInUp">
+                <h5>{displayedText1}</h5>
+            </div>
+            <div style={{padding:"0 25px"}} className="animate__animated animate__bounceInUp">
+                <h3>{displayedText2}</h3>
             </div>
 
 

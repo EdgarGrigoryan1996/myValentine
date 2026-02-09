@@ -1,11 +1,14 @@
 import s from "./GiftMusicPlayer.module.scss"
 import musicImg from "../../assets/images/1.jpg"
 import {useRef, useState} from "react";
-import {IoCloseCircleSharp, IoCloudDownloadOutline} from "react-icons/io5";
+import {IoCloudDownloadOutline} from "react-icons/io5";
 import bgMusic from "../../assets/music/bg.mp3"
-import {FaArrowUp, FaWindowClose} from "react-icons/fa";
-import {RiEyeCloseFill} from "react-icons/ri";
+import armenianMusic from "../../assets/music/gift.mp3"
+import englishMusic from "../../assets/music/myArmine.mp3"
+import {FaArrowUp} from "react-icons/fa";
 import {GrClose} from "react-icons/gr";
+import armenianText from "../../assets/songTexts/ArmenianText.txt"
+import englishText from "../../assets/songTexts/englishText.txt"
 function GiftMusicPlayer(props) {
     const audioSrc = props.music; // путь к файлу
     const audioRef = useRef(null);
@@ -58,7 +61,6 @@ function GiftMusicPlayer(props) {
         audioBlockRef.current.classList.remove(s.hiddenAudio);
     }
 
-
     return (
         <div
             ref={audioBlockRef}
@@ -97,6 +99,30 @@ function GiftMusicPlayer(props) {
             <div className={s.musicTitle}>
                 <h3>I Was Made For Lovin You</h3>
                 <h5>My Armine ❤️</h5>
+                <button onClick={() => {
+                    if(props.music === "/src/assets/music/myArmine.mp3?t=1770662907474"){
+                        props.setMusic(armenianMusic)
+                    } else {
+                        props.setMusic(englishMusic)
+                    }
+
+                }}>{props.music === "/src/assets/music/myArmine.mp3?t=1770662907474" ? "Armenian Version" : "English Version"}</button>
+                <div>
+                    {
+                        props.music === "/src/assets/music/myArmine.mp3?t=1770662907474" ?
+                            (
+                                <a href={englishText} download >
+                                    Download music text
+                                </a>
+                            )
+                            :
+                            (
+                                <a href={armenianText} download>
+                                    Download music text
+                                </a>
+                            )
+                    }
+                </div>
             </div>
 
 

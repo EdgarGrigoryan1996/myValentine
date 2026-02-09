@@ -22,7 +22,7 @@ function App() {
                     <Route path="/valentine" element={<MyValentine setMusic={setMusic} setOpened={setOpened}/>}/>
                     <Route path="*" element={<h1>Ooooops 404 Not Found</h1>}/>
                 </Routes>
-                <GiftMusicPlayer music={music} opened={opened} setOpened={setOpened}/>
+                <GiftMusicPlayer music={music} setMusic={setMusic} opened={opened} setOpened={setOpened}/>
             </div>
 
         </div>
