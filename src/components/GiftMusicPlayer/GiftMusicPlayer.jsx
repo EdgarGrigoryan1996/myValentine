@@ -8,7 +8,7 @@ import englishMusic from "../../assets/music/myArmine.mp3"
 import {FaArrowUp} from "react-icons/fa";
 import {GrClose} from "react-icons/gr";
 import armenianText from "../../assets/songTexts/ArmenianText.txt"
-import englishText from "../../assets/songTexts/englishText.txt"
+import englishText from "../../assets/songTexts/EnglishText.txt"
 function GiftMusicPlayer(props) {
     const audioSrc = props.music; // путь к файлу
     const audioRef = useRef(null);
