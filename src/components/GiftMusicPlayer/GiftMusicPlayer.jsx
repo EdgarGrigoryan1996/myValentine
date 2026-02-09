@@ -100,16 +100,16 @@ function GiftMusicPlayer(props) {
                 <h3>I Was Made For Lovin You</h3>
                 <h5>My Armine ❤️</h5>
                 <button onClick={() => {
-                    if(props.music === "/src/assets/music/myArmine.mp3?t=1770662907474"){
+                    if(props.music === englishMusic){
                         props.setMusic(armenianMusic)
                     } else {
                         props.setMusic(englishMusic)
                     }
 
-                }}>{props.music === "/src/assets/music/myArmine.mp3?t=1770662907474" ? "Armenian Version" : "English Version"}</button>
+                }}>{props.music === englishMusic ? "Armenian Version" : "English Version"}</button>
                 <div>
                     {
-                        props.music === "/src/assets/music/myArmine.mp3?t=1770662907474" ?
+                        props.music === englishMusic ?
                             (
                                 <a href={englishText} download >
                                     Download music text
