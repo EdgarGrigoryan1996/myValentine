@@ -16,7 +16,7 @@ function MyValentine(props) {
         "ՈՒ էտ պահին ինքը հասկացավ որ նա չունի այդքան պահապան հրեշտակ ՝\n" +
         "Ովքեր կկարողանան փրկել ինձ։\n" +
         "Ու ինքը որոշեց ինձ ուղարկել ընդհամենը մի հրեշտակի՝ ամբողջ կյանքի համար՝\n" +
-        "ՔԵԶ\n" +
+        "ՔԵԶ...\n" +
         "Իմ պահապան հրեշտակ❤️\n️"
 
     const animatedText2 = "A small gift for you ✌️"
@@ -52,7 +52,7 @@ function MyValentine(props) {
                 const timeout = setTimeout(() => {
                     setDisplayedText1((prev) => prev + animatedText1[index1]);
                     setIndex1(index1 + 1);
-                },200)
+                },100)
 
                 return () => {
                     clearTimeout(timeout);

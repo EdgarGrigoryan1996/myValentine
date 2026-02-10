@@ -42,7 +42,7 @@ function Home() {
 
     return (
 
-        <div>
+        <div className={s.willBeBlock}>
             <div className="animate__animated animate__lightSpeedInLeft">
                 <h1>Armushiks,</h1>
             </div>
