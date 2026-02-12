@@ -14,7 +14,6 @@ function App() {
   return (
     <>
         <div className={s.homeWrapper}>
-
             <Plyonka />
             <div className={s.homeBlock}>
                 <Routes>
@@ -24,9 +23,7 @@ function App() {
                 </Routes>
                 <GiftMusicPlayer music={music} setMusic={setMusic} opened={opened} setOpened={setOpened}/>
             </div>
-
         </div>
-
     </>
   )
 }

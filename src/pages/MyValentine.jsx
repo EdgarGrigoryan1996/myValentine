@@ -4,7 +4,7 @@ import giftClose from "../assets/images/1.png"
 import giftOpen from "../assets/images/2.png"
 import giftMusic from "../assets/music/myArmine.mp3"
 import {FaArrowLeftLong} from "react-icons/fa6";
-import {FaGift} from "react-icons/fa";
+import TypeWriter from "../components/TypeWriter/TypeWriter.jsx";
 
 function MyValentine(props) {
     const animatedText1 = "Գիտե՞ս, երբ տերը իմացավ, որ պետք է ծնվեմ ես,\n" +
@@ -20,10 +20,7 @@ function MyValentine(props) {
         "Իմ պահապան հրեշտակ❤️\n️"
 
     const animatedText2 = "A small gift for you ✌️"
-    const [displayedText1, setDisplayedText1] = useState("")
-    const [displayedText2, setDisplayedText2] = useState("")
-    const [index1, setIndex1] = useState(0);
-    const [index2, setIndex2] = useState(0);
+
     const [giftIsShow, setGiftIsShow] = useState(false);
     const [giftImage, setGiftImage] = useState(giftClose);
     const [readyForSecondAnimate,setReadyForSecondAnimate] = useState(false);
@@ -46,51 +43,6 @@ function MyValentine(props) {
             clearTimeout(timer);
         }
     }, []);
-    useEffect(() => {
-            if(!started) return;
-            if(index1 < animatedText1.length){
-                const timeout = setTimeout(() => {
-                    setDisplayedText1((prev) => prev + animatedText1[index1]);
-                    setIndex1(index1 + 1);
-                },100)
-
-                return () => {
-                    clearTimeout(timeout);
-                }
-            } else {
-                const timeout = setTimeout(() => {
-                    setReadyForSecondAnimate(true);
-                },2000)
-                return () => {
-                    clearTimeout(timeout);
-                }
-            }
-
-
-
-
-    },[index1,started]);
-
-    useEffect(() => {
-        if(!readyForSecondAnimate) return;
-        if(index2 < animatedText2.length){
-            const timeout = setTimeout(() => {
-                setDisplayedText2((prev) => prev + animatedText2[index2]);
-                setIndex2(index2 + 1);
-            },50)
-
-            return () => {
-                clearTimeout(timeout);
-            }
-        } else {
-            const timeout = setTimeout(() => {
-                setGiftIsShow(true);
-            },2000)
-            return () => {
-                clearTimeout(timeout);
-            }
-        }
-    },[index2,readyForSecondAnimate]);
 
     return (
 
@@ -109,10 +61,10 @@ function MyValentine(props) {
             </div>
 
             <div style={{padding:"0 25px"}} className="animate__animated animate__bounceInUp">
-                <h5>{displayedText1}</h5>
+                     <TypeWriter text={animatedText1} tag={"h5"} duration={150} ready={started} sendRes={setReadyForSecondAnimate}/>
             </div>
             <div style={{padding:"0 25px"}} className="animate__animated animate__bounceInUp">
-                <h3>{displayedText2}</h3>
+                <TypeWriter text={animatedText2} tag={"h3"} duration={200} ready={readyForSecondAnimate} sendRes={setGiftIsShow}/>
             </div>
 
 

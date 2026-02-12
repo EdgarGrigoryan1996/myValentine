@@ -77,6 +77,9 @@
       justify-content: center;
       align-items: center;
       animation: fade 2s linear;
+      position: relative;
+      width: 100%;
+      height: 100%;
       button{
         display: flex;
         justify-content: center;
@@ -90,10 +93,10 @@
       }
       .yes{
         background: #f84949;
-        left: 30%;
+        left: 0;
       }
       .no{
-        right: 30%;
+        right: 0;
       }
     }
   }
@@ -182,12 +185,6 @@
           height: 50px;
           bottom: 150px;
         }
-        .yes{
-          left: 25%;
-        }
-        .no{
-          right: 25%;
-        }
       }
     }
   }
@@ -221,14 +218,6 @@
     .homeBlock{
       width: 70%;
       border-radius: 40px;
-      .buttonsBlock{
-        .yes{
-          left: 20%;
-        }
-        .no{
-          right: 20%;
-        }
-      }
     }
   }
 }
@@ -313,6 +302,19 @@
         }
         h2{
           font-size: 20px;
+        }
+        .buttonsBlock{
+          button{
+            width: 75px;
+            height: 35px;
+            bottom: 150px;
+          }
+          .yes{
+            left: 10%;
+          }
+          .no{
+            right: 10%;
+          }
         }
       }
       .valentine{

@@ -11,8 +11,17 @@ function Home() {
 
     const move = () => {
         const btn = btnRef.current;
-        const offsetX = (Math.random() ) * 400;
-        const offsetY = (Math.random() ) * 400;
+        const container = btn.parentElement;
+
+        const containerRect = container.getBoundingClientRect();
+        const btnRect = btn.getBoundingClientRect();
+
+        const maxX = containerRect.width - btnRect.width;
+        const maxY = containerRect.height - btnRect.height;
+
+        const offsetX = Math.random() * maxX;
+        const offsetY = Math.random() * maxY;
+
         btn.style.position = "absolute";
         btn.style.left = `${offsetX}px`;
         btn.style.top = `${offsetY}px`;
@@ -61,7 +70,10 @@ function Home() {
                             ref={btnRef}
                             onMouseEnter={move}   // desktop
                             onTouchStart={move}
-                            onClick={move}// mobile
+                            onClick={(e) => {
+                                e.stopPropagation()
+                                move()
+                            }}// mobile
                             style={{
                                 padding: "12px 24px",
                                 transition:"0.1s"
@@ -72,7 +84,6 @@ function Home() {
                     </div>
                 )
             }
-
 
         </div>
     );
