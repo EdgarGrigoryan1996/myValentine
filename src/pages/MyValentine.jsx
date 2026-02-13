@@ -5,6 +5,7 @@ import giftOpen from "../assets/images/2.png"
 import giftMusic from "../assets/music/myArmine.mp3"
 import {FaArrowLeftLong} from "react-icons/fa6";
 import TypeWriter from "../components/TypeWriter/TypeWriter.jsx";
+import DaysWithMe from "../components/DaysWithMe/DaysWithMe.jsx";
 
 function MyValentine(props) {
     const animatedText1 = "Գիտե՞ս, երբ տերը իմացավ, որ պետք է ծնվեմ ես,\n" +

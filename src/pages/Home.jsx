@@ -62,7 +62,7 @@ function Home() {
             {buttonsIsShow &&
                 (
                     <div className={s.buttonsBlock}>
-                        <Link to="/valentine">
+                        <Link to="/withMe">
                             <button className={s.yes}>YES</button>
                         </Link>
                         <button

@@ -6,6 +6,7 @@ import {useState} from "react";
 import Plyonka from "./components/Plyonka/Plyonka.jsx";
 import bgMusic from "./assets/music/bg.mp3"
 import GiftMusicPlayer from "./components/GiftMusicPlayer/GiftMusicPlayer.jsx";
+import DaysWithMe from "./components/DaysWithMe/DaysWithMe.jsx";
 function App() {
     const [music,setMusic] = useState(bgMusic);
     const [opened, setOpened] = useState(false);
@@ -18,6 +19,7 @@ function App() {
             <div className={s.homeBlock}>
                 <Routes>
                     <Route path="/home" element={<Home  />}/>
+                    <Route path="/withMe" element={<DaysWithMe />} />
                     <Route path="/valentine" element={<MyValentine setMusic={setMusic} setOpened={setOpened}/>}/>
                     <Route path="*" element={<h1>Ooooops 404 Not Found</h1>}/>
                 </Routes>

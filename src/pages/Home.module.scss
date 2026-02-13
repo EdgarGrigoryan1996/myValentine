@@ -23,6 +23,11 @@
     border-radius: 20px;
     color: #fff;
     font-size: 20px;
+    transition: .3s;
+    &:hover{
+      background: #fff;
+      color: #f84949;
+    }
   }
 }
 
