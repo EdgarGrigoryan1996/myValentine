@@ -56,7 +56,7 @@ function DaysWithMe() {
                 )}
             </div>
             <div className="animate__animated animate__bounceInUp animate__delay-4s">
-                <Link to={"/valentine"}>Oooo Next</Link>
+                <Link to={"/valentine"}>Oooo Next 😊</Link>
             </div>
         </div>
     );
