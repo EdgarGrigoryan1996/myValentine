@@ -107,6 +107,9 @@
   position: relative;
   width: 100%;
   height: 100%;
+  h1{
+    color: #2e2e2e !important;
+  }
 
   img{
     max-width: 300px;
@@ -339,4 +342,21 @@
   }
 }
 
+@media screen and (max-width: 420px){
+
+  .homeWrapper{
+    .homeBlock{
+      border-radius: 15px;
+      width: 90%;
+      .valentine{
+        h1{
+          font-size: 30px;
+        }
+        h2{
+          margin-top: 25px;
+        }
+      }
+    }
+  }
+}
 
